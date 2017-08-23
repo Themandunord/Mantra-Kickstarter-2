@@ -1,0 +1,5 @@
+tabSize: 2
+storybook: true
+generateComponentTests: true
+generateContainerTests: true
+modulesPath: client/modules
