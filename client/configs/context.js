@@ -10,6 +10,6 @@ export default function () {
         Collections,
         LocalState: new ReactiveDict(),
         Tracker,
-        Accounts,
+        Accounts
     };
 }
