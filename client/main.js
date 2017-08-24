@@ -1,6 +1,9 @@
 import {createApp} from 'mantra-core';
 import initContext from './configs/context';
 
+/* Import Antd CSS */
+import 'antd/dist/antd.css';
+
 // modules
 import coreModule from './modules/core';
 
