@@ -1,4 +1,4 @@
-import { authComposer } from '/client/modules/auth/libs/authComposer';
+import { authComposer } from '/client/utils/authComposer';
 
 export {
     authComposer,
