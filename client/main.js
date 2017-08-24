@@ -2,9 +2,12 @@ import {createApp} from "mantra-core";
 import config from "./configs";
 import initContext from "./configs/context";
 import coreModule from "./modules/core";
-import "antd/dist/antd.css";
 
-/* Import Antd CSS */
+// Replace Underscore with lodash
+_ = lodash;
+
+// Import Antd CSS
+import "antd/dist/antd.css";
 
 // Configure the client
 config();
