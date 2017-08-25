@@ -7,7 +7,7 @@ import coreModule from "./modules/core";
 _ = lodash;
 
 // Import Antd CSS
-import "antd/dist/antd.css";
+//import "antd/dist/antd.css";
 
 // Configure the client
 config();
