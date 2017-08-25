@@ -1,7 +1,7 @@
-import bert from "./bert.config";
-import head from "./head.config";
+import bert from './bert.config';
+import head from './head.config';
 
 export default function () {
-    bert();
-    head();
+  bert();
+  head();
 }

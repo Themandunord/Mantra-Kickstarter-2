@@ -5,11 +5,11 @@ import {Tracker} from 'meteor/tracker';
 import {Accounts} from 'meteor/accounts-base';
 
 export default function () {
-    return {
-        Meteor,
-        Collections,
-        LocalState: new ReactiveDict(),
-        Tracker,
-        Accounts
-    };
+  return {
+    Meteor,
+    Collections,
+    LocalState: new ReactiveDict(),
+    Tracker,
+    Accounts
+  };
 }

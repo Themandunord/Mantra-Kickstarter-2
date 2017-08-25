@@ -1,13 +1,13 @@
-import {createApp} from "mantra-core";
-import config from "./configs";
-import initContext from "./configs/context";
-import coreModule from "./modules/core";
+import {createApp} from 'mantra-core';
+import config from './configs';
+import initContext from './configs/context';
+import coreModule from './modules/core';
 
 // Replace Underscore with lodash
 _ = lodash;
 
 // Import Antd CSS
-//import "antd/dist/antd.css";
+// import "antd/dist/antd.css";
 
 // Configure the client
 config();
@@ -26,9 +26,9 @@ app.init();
 
 // Remove the loading spinner when the user have loaded all the scripts
 if (Meteor.isClient) {
-    Meteor.startup(function() {
-        setTimeout(function() {
-            $("#inject-loader-wrapper").fadeOut(200, function() { $(this).remove(); });
-        }, 500);
-    });
+  Meteor.startup(function () {
+    setTimeout(function () {
+      $('#inject-loader-wrapper').fadeOut(200, function () { $(this).remove(); });
+    }, 500);
+  });
 }
