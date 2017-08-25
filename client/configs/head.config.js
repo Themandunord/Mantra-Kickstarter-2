@@ -1,3 +1,5 @@
+/* global DocHead*/
+
 export default function () {
   DocHead.addMeta({
     charset: 'UTF-8'
@@ -87,16 +89,16 @@ export default function () {
   DocHead.addLdJsonScript({
     '@context': 'http://schema.org',
     '@type': 'Organization',
-    'name': 'https://smartisdesign.com',
-    'url': '',
-    'logo': '',
-    'description': 'https://smartisdesign.com',
-    'telephone': '0000000000',
-    'address': {
+    name: 'https://smartisdesign.com',
+    url: '',
+    logo: '',
+    description: 'https://smartisdesign.com',
+    telephone: '0000000000',
+    address: {
       '@type': 'PostalAddress',
-      'addressLocality': 'Strasbourg',
-      'addressRegion': 'Alsace',
-      'streetAddress': 'Avenue de l\'Europe'
+      addressLocality: 'Strasbourg',
+      addressRegion: 'Alsace',
+      streetAddress: 'Avenue de l\'Europe'
     }
   });
 
