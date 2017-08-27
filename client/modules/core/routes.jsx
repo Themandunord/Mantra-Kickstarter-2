@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import {mount} from 'react-mounter';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 
+// Lang
+import LocaleProvider from 'antd/lib/locale-provider';
+import { antd } from '/client/configs/i18n.config';
+
 /* Layouts */
 import MainLayout from '/client/modules/core/components/main_layout.jsx';
 
@@ -15,10 +19,10 @@ export default function (injectDeps, {LocalState}) {
 
     ReactDOM.render(
         <BrowserRouter>
-            <div>
+            <LocaleProvider locale={antd()}>
                 <Route exact path="/" component={Home}/>
-            </div>
-        </BrowserRouter>
+            </LocaleProvider>
+        </BrowserRouter >
         ,
         getRootNode('root')
     );

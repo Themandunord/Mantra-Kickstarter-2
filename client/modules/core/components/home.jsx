@@ -1,5 +1,7 @@
 import React from "react";
+import i18n from 'meteor/universe:i18n';
 import DatePicker from "antd/lib/date-picker";
+const T = i18n.createComponent();
 
 const Home = () => {
     return (
@@ -16,6 +18,8 @@ const Home = () => {
                     Learn <a target="_blank" href="https://github.com/sungwoncho/mantra-cli#commands">CLI</a>
                 </li>
             </ul>
+
+            <T>title</T>
 
             <DatePicker />
         </div>
