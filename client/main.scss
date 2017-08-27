@@ -1,1 +1,14 @@
 // Main CSS with SASS
+
+#root,
+#root > div {
+  height: 100%;
+}
+
+// Layout to remove
+.logo {
+  height: 32px;
+  background: #333;
+  border-radius: 6px;
+  margin: 16px;
+}

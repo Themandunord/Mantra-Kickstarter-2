@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Layout = ({content = () => null }) => (
+const Layout = (props) => (
   <div>
     <div>
-      {content()}
+      {props.children}
     </div>
   </div>
 );
