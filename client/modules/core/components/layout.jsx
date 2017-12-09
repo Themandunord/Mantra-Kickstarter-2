@@ -4,7 +4,7 @@ import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
 
 
-const {Header, Content, Footer, Sider} = AntLayout;
+const {Header, Content, Sider} = AntLayout;
 const {SubMenu} = Menu;
 
 class Layout extends React.Component {
@@ -72,9 +72,6 @@ class Layout extends React.Component {
                     <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
                         {this.props.children}
                     </Content>
-                    <Footer style={{textAlign: 'center'}}>
-                        Ant Design ©2016 Created by Ant UED
-                    </Footer>
                 </AntLayout>
             </AntLayout>
         );
