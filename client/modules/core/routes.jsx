@@ -7,7 +7,7 @@ import LocaleProvider from 'antd/lib/locale-provider';
 import {antd} from '/client/configs/i18n.config';
 
 /* Layouts */
-import Layout from '/client/modules/core/containers/layout';
+import Layout from '/client/modules/layout/containers/layout';
 
 /* Containers */
 import Home from '/client/modules/core/components/home.jsx';

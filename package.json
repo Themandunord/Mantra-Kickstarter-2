@@ -1,10 +1,14 @@
 {
-  "name": "Mantra Kickstater",
+  "name": "Mantra-Kickstater",
   "version": "0.0.1",
   "description": "Mantra Kickstater",
+  "engines": {
+    "node": "8.9.x"
+  },
   "scripts": {
     "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -30,7 +34,8 @@
     "@babel/preset-env": "7.0.0-beta.34",
     "@babel/preset-react": "^7.0.0-beta.34",
     "@babel/preset-stage-2": "^7.0.0-beta.34",
-    "@storybook/react": "3.2.7",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-loader": "^8.0.0-beta.0",
     "babel-plugin-import": "^1.6.3",
     "babel-plugin-react-require": "3.x.x",
     "babel-root-slash-import": "1.x.x",

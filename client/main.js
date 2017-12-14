@@ -2,6 +2,8 @@ import {createApp} from 'mantra-core';
 import config from './configs';
 import initContext from './configs/context';
 import coreModule from './modules/core';
+import layoutModule from './modules/layout';
+
 
 // Replace Underscore with lodash
 _ = lodash;
@@ -21,6 +23,8 @@ const context = initContext();
 const app = createApp(context);
 // load modules
 app.loadModule(coreModule);
+app.loadModule(layoutModule);
+
 app.init();
 
 
