@@ -1,7 +1,10 @@
 import React from 'react';
 import AntLayout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
+import Dropdown from 'antd/lib/dropdown';
+import Avatar from 'antd/lib/avatar';
 import Icon from 'antd/lib/icon';
+import styles from '../styles/layout.less';
 
 
 const {Header, Content, Sider} = AntLayout;
@@ -23,6 +26,16 @@ class Layout extends React.Component {
     };
 
     render() {
+        const menu = (
+            <Menu className={styles.menu} selectedKeys={[]}>
+                <Menu.Item disabled><Icon type="user"/>个人中心</Menu.Item>
+                <Menu.Item disabled><Icon type="setting"/>设置</Menu.Item>
+                <Menu.Divider/>
+                <Menu.Item key="logout"><Icon type="logout"/>退出登录</Menu.Item>
+            </Menu>
+        );
+
+
         return (
             <AntLayout>
                 <Sider
@@ -63,11 +76,20 @@ class Layout extends React.Component {
                 </Sider>
                 <AntLayout>
                     <Header style={{background: '#fff', padding: 0}}>
-                        <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
+                        <div className={styles.right}>
+                            <Icon
+                                className="trigger"
+                                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                onClick={this.toggle}
+                            />
+
+                            <Dropdown overlay={menu}>
+                              <span className={`${styles.action} ${styles.account}`}>
+                                <Avatar size="small" className={styles.avatar} src={''}/>
+                                  Rémy
+                              </span>
+                            </Dropdown>
+                        </div>
                     </Header>
                     <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
                         {this.props.children}

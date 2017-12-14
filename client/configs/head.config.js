@@ -44,7 +44,7 @@ export default function () {
     content: 'MEP BO'
   });
   DocHead.addMeta({
-    name: 'apple-mobile-web-app-status-bar-style',
+    name: 'apple-mobile-web-app-status-bar-styles',
     content: 'white'
   });
 
