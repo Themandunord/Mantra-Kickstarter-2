@@ -5,11 +5,7 @@
   "engines": {
     "node": "8.9.x"
   },
-  "scripts": {
-    "test": "mocha .scripts/mocha_boot.js client/**/tests/**/*.js --compilers js:babel-core/register",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Themandunord/Mantra-Kickstarter-2.git"
@@ -20,6 +16,7 @@
     "@babel/runtime": "^7.0.0-beta.34",
     "antd": "^3.0.1",
     "bcrypt": "^1.0.3",
+    "indexof": "0.0.1",
     "mantra-core": "^1.7.0",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
@@ -31,11 +28,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.34",
-    "@babel/preset-env": "7.0.0-beta.34",
-    "@babel/preset-react": "^7.0.0-beta.34",
-    "@babel/preset-stage-2": "^7.0.0-beta.34",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-loader": "^8.0.0-beta.0",
     "babel-plugin-import": "^1.6.3",
     "babel-plugin-react-require": "3.x.x",
     "babel-root-slash-import": "1.x.x",

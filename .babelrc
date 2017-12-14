@@ -1,8 +1,4 @@
 {
-  "presets": [
-    "@babel/preset-react",
-    "@babel/preset-env"
-  ],
   "plugins": [
     "react-require",
     "babel-root-slash-import"
