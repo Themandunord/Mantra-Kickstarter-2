@@ -1,4 +1,5 @@
 import React from 'react';
+import autoBind from 'react-autobind';
 import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
@@ -13,7 +14,9 @@ class BasicLayout extends React.Component {
 
         this.state = {
             collapsed: true
-        }
+        };
+
+        autoBind(this)
     }
 
     onToggleCollapse = () => {
@@ -65,7 +68,7 @@ class BasicLayout extends React.Component {
                 <Layout>
                     <GlobalHeader
                         collapsed={this.state.collapsed}
-                        onCollapse={this.onToggleCollapse.bind(this)}
+                        onCollapse={this.onToggleCollapse}
                     />
                     <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
                         {this.props.children}

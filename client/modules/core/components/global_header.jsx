@@ -16,7 +16,7 @@ class GlobalHeader extends React.Component {
 
     render() {
         const menu = (
-            <Menu className={styles.menu} selectedKeys={[]}>
+            <Menu className='menu' selectedKeys={[]}>
                 <Menu.Item disabled><Icon type="user"/>Profil</Menu.Item>
                 <Menu.Item disabled><Icon type="setting"/>Paramètres</Menu.Item>
                 <Menu.Divider/>
@@ -25,17 +25,16 @@ class GlobalHeader extends React.Component {
         );
 
         return (
-            <Header style={{background: '#fff', padding: 0}}>
-                <div className={styles.right}>
-                    <Icon
-                        className="trigger"
-                        type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
-                        onClick={this.props.onCollapse}
-                    />
-
+            <Header className='header'>
+                <Icon
+                    className="trigger"
+                    type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
+                    onClick={this.props.onCollapse}
+                />
+                <div className='right'>
                     <Dropdown overlay={menu}>
-                              <span className={`${styles.action} ${styles.account}`}>
-                                <Avatar size="small" className={styles.avatar} src={''}/>
+                              <span className='action account'>
+                                <Avatar size="small" className='avatar' src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}/>
                                   Rémy
                               </span>
                     </Dropdown>

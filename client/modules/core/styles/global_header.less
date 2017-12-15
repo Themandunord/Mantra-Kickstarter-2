@@ -1,8 +1,8 @@
 @import "{}/node_modules/antd/lib/style/themes/default.less";
 
 .header {
-  padding: 0 12px 0 0;
-  background: #fff;
+  padding: 0 12px 0 0 !important;
+  background: #fff !important;
   box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
   position: relative;
 }
@@ -14,10 +14,10 @@
 }
 
 .menu {
-  :global(.anticon) {
+  .anticon {
     margin-right: 8px;
   }
-  :global(.ant-dropdown-menu-item) {
+  .ant-dropdown-menu-item {
     width: 160px;
   }
 }
@@ -52,7 +52,7 @@ i.trigger {
       font-size: 16px;
       vertical-align: middle;
     }
-    &:global(.ant-popover-open),
+    &.ant-popover-open,
     &:hover {
       background: @primary-1;
     }
