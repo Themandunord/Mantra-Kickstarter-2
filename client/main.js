@@ -1,3 +1,6 @@
+// Sanitize CSS
+import 'sanitize.css/sanitize.css';
+
 import {createApp} from 'mantra-core';
 
 import config from './configs';
