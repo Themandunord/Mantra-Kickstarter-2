@@ -13,7 +13,7 @@
   "author": "Lespagnol Rémy - Themandunord",
   "license": "ISC",
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.34",
+    "@babel/runtime": "^7.0.0-beta.35",
     "antd": "^3.0.1",
     "bcrypt": "^1.0.3",
     "indexof": "0.0.1",
@@ -27,7 +27,6 @@
     "react-simple-di": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.34",
     "babel-plugin-import": "^1.6.3",
     "babel-plugin-react-require": "3.x.x",
     "babel-root-slash-import": "1.x.x",
