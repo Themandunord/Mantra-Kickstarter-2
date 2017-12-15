@@ -30,13 +30,7 @@
     "babel-plugin-import": "^1.6.3",
     "babel-plugin-react-require": "3.x.x",
     "babel-root-slash-import": "1.x.x",
-    "chai": "3.x.x",
-    "enzyme": "^2.4.0",
     "eslint": "3.5.x",
-    "eslint-plugin-react": "4.3.x",
-    "jsdom": "^8.0.4",
-    "mocha": "2.x.x",
-    "react-addons-test-utils": "^15.6.2",
-    "sinon": "1.17.x"
+    "eslint-plugin-react": "4.3.x"
   }
 }
