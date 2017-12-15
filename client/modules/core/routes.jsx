@@ -7,14 +7,14 @@ import LocaleProvider from 'antd/lib/locale-provider';
 import {antd} from '/client/configs/i18n.config';
 
 /* Layouts */
-import Layout from '/client/modules/layout/containers/layout';
+import BasicLayout from '/client/modules/layout/containers/basic_layout';
 
 /* Containers */
 import Home from '/client/modules/core/components/home.jsx';
 
 
 export default function (injectDeps, {LocalState}) {
-    const MainLayoutCtx = injectDeps(Layout);
+    const MainLayoutCtx = injectDeps(BasicLayout);
 
     ReactDOM.render(
         <BrowserRouter>
