@@ -1,23 +1,31 @@
 import {createApp} from 'mantra-core';
+import { combineReducers } from 'redux'
+
 import config from './configs';
 import initContext from './configs/context';
+
 import coreModule from './modules/core';
 import layoutModule from './modules/layout';
 
 
+const coreReducers = coreModule.reducer;
+const layoutReducers = layoutModule.reducer;
+
+// Combine Reducers
+const reducer = combineReducers({
+    ...coreReducers,
+    ...layoutReducers
+});
+
 // Replace Underscore with lodash
 _ = lodash;
 
-// Import Antd CSS
-// import "antd/dist/antd.css";
 
 // Configure the client
 config();
 
-// modules
-
 // init context
-const context = initContext();
+const context = initContext({reducer});
 
 // create app
 const app = createApp(context);
