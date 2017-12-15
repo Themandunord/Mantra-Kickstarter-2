@@ -24,7 +24,8 @@
     "react-mounter": "^1.0.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-simple-di": "^1.0.1"
+    "react-simple-di": "^1.0.1",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel-plugin-import": "^1.6.3",
