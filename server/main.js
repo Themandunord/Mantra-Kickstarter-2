@@ -1,16 +1,16 @@
 import publications from './publications';
 import methods from './methods';
 import configs from './configs';
-import Logger from './libs/logger';
+import _Logger from './libs/logger';
+
+// Add a namespace for the Logger Lib
+Logger = _Logger;
 
 // Replace Undescore with lodash
 _ = lodash;
 
-Logger.info('Load configs');
 configs();
-Logger.info('Load publication');
 publications();
-Logger.info('Load methods');
 methods();
 
 Logger.success('Server is started');
