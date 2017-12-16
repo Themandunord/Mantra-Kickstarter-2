@@ -35,3 +35,5 @@ less@2.7.11
 universe:i18n
 alanning:roles
 meteorhacks:subs-manager
+browser-policy
+dynamic-import
