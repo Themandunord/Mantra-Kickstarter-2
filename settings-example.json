@@ -1,0 +1,26 @@
+{
+  "public": {
+    "appMode": "development",
+    "appDebug": false,
+    "appName": "Mantra-Kickstarter",
+    "domain": "<domain>",
+    "google": {
+      "analyticsId": "UA-000000-01"
+    }
+  },
+
+  "email": {
+    "address": "<address>",
+    "password": "<password>",
+    "host": "<smtp-host>",
+    "port": "<port>"
+  },
+
+  "browserPolicy": {
+    "allowOriginForAll": [
+      "*.googleapis.com",
+      "*.gstatic.com",
+      "*.google-analytics.com"
+    ]
+  }
+}
