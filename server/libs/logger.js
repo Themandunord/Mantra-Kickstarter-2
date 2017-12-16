@@ -1,5 +1,7 @@
 /* eslint no-console: 0 */
 import chalk from 'chalk';
+chalk.enabled = true;
+chalk.level = 3;
 
 export default class Logger {
   static info(message) {
