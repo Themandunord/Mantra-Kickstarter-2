@@ -5,7 +5,11 @@
   "engines": {
     "node": "8.9.x"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "npm run dev",
+    "dev" : "meteor --settings settings-dev.json",
+    "prod" : "meteor --settings settings-prod.json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Themandunord/Mantra-Kickstarter-2.git"
