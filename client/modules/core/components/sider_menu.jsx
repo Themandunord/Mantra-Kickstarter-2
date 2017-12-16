@@ -23,7 +23,7 @@ class SiderMenu extends React.Component {
                 collapsed={this.props.collapsed}
             >
                 <div className='logo'>
-                    <Link to="/">
+                    <Link to="/app">
                         <img src='/img/logo.svg' alt="logo" />
                         <h1>Mantra Kickstarter</h1>
                     </Link>

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {
     Router,
     Route,
-    Switch
+    Switch,
+    Redirect
 } from 'react-router-dom';
 import history from '/client/configs/history';
 // Lang
@@ -12,21 +13,32 @@ import {antd} from '/client/configs/i18n.config';
 
 /* Layouts */
 import BasicLayout from '/client/modules/layout/containers/basic_layout';
+import UserLayout from '/client/modules/layout/containers/user_layout';
 
 /* Containers */
 import Home from '/client/modules/core/components/home.jsx';
 
 export default function (injectDeps, {LocalState}) {
-    const MainLayoutCtx = injectDeps(BasicLayout);
+    const BasicLayoutCtx = injectDeps(BasicLayout);
+    const UserLayoutCtx = injectDeps(UserLayout);
+
+    const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+        <Route {...rest} render={props => (
+            <Layout>
+                <Component {...props} />
+            </Layout>
+        )} />
+    )
 
     ReactDOM.render(
         <Router history={history}>
             <LocaleProvider locale={antd()}>
-                <MainLayoutCtx>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                    </Switch>
-                </MainLayoutCtx>
+                <Switch>
+
+                    <AppRoute exact path='/user' layout={UserLayoutCtx} component={Home}/>
+                    <AppRoute exact path='/app' layout={BasicLayoutCtx} component={Home}/>
+                    <Redirect from='/' to='/user'/>
+                </Switch>
             </LocaleProvider>
         </Router>
         ,

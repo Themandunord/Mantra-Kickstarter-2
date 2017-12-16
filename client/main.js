@@ -8,6 +8,8 @@ import initContext from './configs/context';
 
 import coreModule from './modules/core';
 import layoutModule from './modules/layout';
+import accountModule from './modules/account';
+
 
 // Replace Underscore with lodash
 _ = lodash;
@@ -24,6 +26,8 @@ const app = createApp(context);
 // load modules
 app.loadModule(coreModule);
 app.loadModule(layoutModule);
+app.loadModule(accountModule);
+
 
 app.init();
 
