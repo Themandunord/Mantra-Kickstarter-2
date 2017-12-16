@@ -1,1 +1,3 @@
-# Mantra-Kickstarter-2
+# Meteor Mantra + React + Ant Design Boilerplate
+
+In development.
