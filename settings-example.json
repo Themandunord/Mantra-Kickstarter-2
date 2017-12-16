@@ -20,7 +20,9 @@
     "allowOriginForAll": [
       "*.googleapis.com",
       "*.gstatic.com",
-      "*.google-analytics.com"
+      "*.google-analytics.com",
+      "*.alipayobjects.com",
+      "*.alicdn.com"
     ]
   }
 }
