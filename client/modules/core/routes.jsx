@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
-
+import {
+    Router,
+    Route,
+    Switch
+} from 'react-router-dom';
+import history from '/client/configs/history';
 // Lang
 import LocaleProvider from 'antd/lib/locale-provider';
 import {antd} from '/client/configs/i18n.config';
@@ -12,18 +16,19 @@ import BasicLayout from '/client/modules/layout/containers/basic_layout';
 /* Containers */
 import Home from '/client/modules/core/components/home.jsx';
 
-
 export default function (injectDeps, {LocalState}) {
     const MainLayoutCtx = injectDeps(BasicLayout);
 
     ReactDOM.render(
-        <BrowserRouter>
+        <Router history={history}>
             <LocaleProvider locale={antd()}>
                 <MainLayoutCtx>
-                    <Route exact path="/" component={Home}/>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                    </Switch>
                 </MainLayoutCtx>
             </LocaleProvider>
-        </BrowserRouter >
+        </Router>
         ,
         getRootNode('root')
     );
