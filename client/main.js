@@ -1,5 +1,8 @@
 // Sanitize CSS
 import 'sanitize.css/sanitize.css';
+import {T9n} from 'meteor-accounts-t9n';
+import 'meteor-accounts-t9n/build/fr';
+import 'meteor-accounts-t9n/build/en';
 
 import {createApp} from 'mantra-core';
 

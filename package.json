@@ -24,6 +24,7 @@
     "classnames": "^2.2.5",
     "indexof": "0.0.1",
     "mantra-core": "^1.7.0",
+    "meteor-accounts-t9n": "^2.0.3",
     "react": "^15.6.2",
     "react-autobind": "^1.0.6",
     "react-dom": "^15.6.2",
