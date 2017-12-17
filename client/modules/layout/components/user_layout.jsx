@@ -40,6 +40,7 @@ class UserLayout extends React.Component {
                             </Link>
                         </div>
                         <div className='desc'>Meteor Mantra + React + Ant Design boilerplate</div>
+                        {this.props.children}
                     </div>
                     <GlobalFooter className='footer' links={links} copyright={copyright} />
                 </div>
