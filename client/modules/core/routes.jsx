@@ -1,29 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
-
+import {
+    Router,
+    Route,
+    Switch,
+    Redirect
+} from 'react-router-dom';
+import history from '/client/configs/history';
 // Lang
 import LocaleProvider from 'antd/lib/locale-provider';
 import {antd} from '/client/configs/i18n.config';
 
 /* Layouts */
 import BasicLayout from '/client/modules/layout/containers/basic_layout';
+import UserLayout from '/client/modules/layout/containers/user_layout';
 
 /* Containers */
 import Home from '/client/modules/core/components/home.jsx';
 
+/* Container Accounts */
+import Login from '/client/modules/account/containers/login';
 
 export default function (injectDeps, {LocalState}) {
-    const MainLayoutCtx = injectDeps(BasicLayout);
+    const BasicLayoutCtx = injectDeps(BasicLayout);
+    const UserLayoutCtx = injectDeps(UserLayout);
+
+    const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
+        <Route {...rest} render={props => (
+            <Layout>
+                <Component {...props} />
+            </Layout>
+        )} />
+    )
 
     ReactDOM.render(
-        <BrowserRouter>
+        <Router history={history}>
             <LocaleProvider locale={antd()}>
-                <MainLayoutCtx>
-                    <Route exact path="/" component={Home}/>
-                </MainLayoutCtx>
+                <Switch>
+                    <AppRoute exact path='/user' layout={UserLayoutCtx} component={Home}/>
+                    <AppRoute exact path='/user/login' layout={UserLayoutCtx} component={Login}/>
+                    <AppRoute exact path='/app' layout={BasicLayoutCtx} component={Home}/>
+                    <Redirect from='/' to='/user'/>
+                </Switch>
             </LocaleProvider>
-        </BrowserRouter >
+        </Router>
         ,
         getRootNode('root')
     );

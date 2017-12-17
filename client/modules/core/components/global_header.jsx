@@ -5,8 +5,6 @@ import Avatar from 'antd/lib/avatar';
 import Icon from 'antd/lib/icon';
 import Layout from 'antd/lib/layout';
 
-import styles from '../styles/global_header.less';
-
 const {Header} = Layout
 
 class GlobalHeader extends React.Component {
@@ -25,21 +23,24 @@ class GlobalHeader extends React.Component {
         );
 
         return (
-            <Header className='header'>
-                <Icon
-                    className="trigger"
-                    type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
-                    onClick={this.props.onCollapse}
-                />
-                <div className='right'>
-                    <Dropdown overlay={menu}>
+            <div className='global_header'>
+                <Header className='header'>
+                    <Icon
+                        className="trigger"
+                        type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
+                        onClick={this.props.onCollapse}
+                    />
+                    <div className='right'>
+                        <Dropdown overlay={menu}>
                               <span className='action account'>
-                                <Avatar size="small" className='avatar' src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}/>
+                                <Avatar size="small" className='avatar'
+                                        src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}/>
                                   Rémy
                               </span>
-                    </Dropdown>
-                </div>
-            </Header>
+                        </Dropdown>
+                    </div>
+                </Header>
+            </div>
         );
     }
 }

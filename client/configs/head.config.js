@@ -10,14 +10,14 @@ export default function () {
   });
   DocHead.addMeta({
     name: 'description',
-    content: 'MEP BO'
+    content: 'Mantra Kickstarter'
   });
   DocHead.addMeta({
     name: 'fragment',
     content: '!'
   });
 
-  var title = 'MEP BO';
+  var title = 'Mantra Kickstarter';
   DocHead.setTitle(title);
 
     /* Android */
