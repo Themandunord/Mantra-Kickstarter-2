@@ -6,5 +6,5 @@ export default function () {
   const host = Meteor.settings.email.host;
   const port = Meteor.settings.email.port;
 
-  process.env.MAIL_URL = `smtp://${email}:${password}@${host}:${port}/`;
+  //process.env.MAIL_URL = `smtp://${email}:${password}@${host}:${port}/`;
 }
