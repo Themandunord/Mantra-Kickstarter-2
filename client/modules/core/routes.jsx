@@ -20,6 +20,7 @@ import Home from '/client/modules/core/components/home.jsx';
 
 /* Container Accounts */
 import Login from '/client/modules/account/containers/login';
+import Register from '/client/modules/account/containers/register';
 
 export default function (injectDeps, {LocalState}) {
     const BasicLayoutCtx = injectDeps(BasicLayout);
@@ -37,10 +38,10 @@ export default function (injectDeps, {LocalState}) {
         <Router history={history}>
             <LocaleProvider locale={antd()}>
                 <Switch>
-                    <AppRoute exact path='/user' layout={UserLayoutCtx} component={Home}/>
                     <AppRoute exact path='/user/login' layout={UserLayoutCtx} component={Login}/>
+                    <AppRoute exact path='/user/register' layout={UserLayoutCtx} component={Register}/>
                     <AppRoute exact path='/app' layout={BasicLayoutCtx} component={Home}/>
-                    <Redirect from='/' to='/user'/>
+                    <Redirect from='/' to='/user/login'/>
                 </Switch>
             </LocaleProvider>
         </Router>
