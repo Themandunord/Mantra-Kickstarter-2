@@ -1,7 +1,6 @@
 import React from "react";
 import i18n from 'meteor/universe:i18n';
 import DatePicker from "antd/lib/date-picker";
-const T = i18n.createComponent();
 
 const Home = () => {
     return (
@@ -19,7 +18,7 @@ const Home = () => {
                 </li>
             </ul>
 
-            <T>title</T>
+            <p>{i18n.__('title')}</p>
 
             <DatePicker />
         </div>
