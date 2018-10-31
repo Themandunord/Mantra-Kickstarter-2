@@ -9,6 +9,7 @@ export default {
       Meteor.loginWithPassword(email, password, (error) => {
         if (error) {
           Bert.alert(T9n.get('error.accounts.' + error.reason), 'danger');
+          debugger;
           return LocalState.set('LOGIN_ERROR', error.reason);
         }
         Bert.alert('Vous êtes connecté :)');

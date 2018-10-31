@@ -3,6 +3,7 @@ import autoBind from 'react-autobind';
 import Layout from 'antd/lib/layout';
 import SiderMenu from '/client/modules/core/components/sider_menu';
 import GlobalHeader from '/client/modules/core/containers/global_header';
+import EnsureUser from '/client/modules/auth/containers/ensure_user';
 
 const {Content} = Layout;
 
@@ -25,19 +26,21 @@ class BasicLayout extends React.Component {
 
     render() {
         return (
-            <Layout>
-                <SiderMenu
-                    collapsed={this.state.collapsed}/>
+            <EnsureUser>
                 <Layout>
-                    <GlobalHeader
-                        collapsed={this.state.collapsed}
-                        onCollapse={this.onToggleCollapse}
-                    />
-                    <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
-                        {this.props.children}
-                    </Content>
+                    <SiderMenu
+                        collapsed={this.state.collapsed}/>
+                    <Layout>
+                        <GlobalHeader
+                            collapsed={this.state.collapsed}
+                            onCollapse={this.onToggleCollapse}
+                        />
+                        <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
+                            {this.props.children}
+                        </Content>
+                    </Layout>
                 </Layout>
-            </Layout>
+            </EnsureUser>
         );
     }
 }

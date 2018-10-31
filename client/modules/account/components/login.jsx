@@ -69,18 +69,20 @@ class Login extends React.Component {
                             <Checkbox className='autoLogin'>Keep sign-in</Checkbox>
                         )}
                         <a className='forgot' href="">Forgot password</a>
+                        <Link className='register' to="/user/register">Register</Link>
                         <Button size="large" loading={false} className='submit' type="primary" htmlType="submit">
                             Sign-in
                         </Button>
                     </FormItem>
                 </Form>
-                <div className='other'>
+                
+                {/*<div className='other'>
                    Other login methods
                     <span className='iconAlipay' />
                     <span className='iconTaobao' />
                     <span className='iconWeibo' />
-                    <Link className='register' to="/user/register">Register</Link>
-                </div>
+                    
+                      </div>*/}
             </div>
         );
     }

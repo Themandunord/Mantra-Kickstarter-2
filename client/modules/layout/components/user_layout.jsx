@@ -6,18 +6,20 @@ import {Link} from 'react-router-dom';
 
 import GlobalFooter from '/client/modules/core/components/global_footer';
 
-const links = [{
-    title: 'Link A',
-    href: '',
-}, {
-    title: 'Link B',
-    href: '',
-}, {
-    title: 'Link C',
-    href: '',
-}];
+const links = [
+//     {
+//     title: 'Link A',
+//     href: '',
+// }, {
+//     title: 'Link B',
+//     href: '',
+// }, {
+//     title: 'Link C',
+//     href: '',
+// }
+];
 
-const copyright = <div>Copyright <Icon type="copyright" /> 2017 Themandunord</div>;
+const copyright = <div>Copyright <Icon type="copyright" /> 2018 Rémy Lespagnol</div>;
 
 class UserLayout extends React.Component {
     constructor(props) {
