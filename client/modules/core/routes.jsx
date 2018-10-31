@@ -10,6 +10,10 @@ import history from '/client/configs/history';
 // Lang
 import LocaleProvider from 'antd/lib/locale-provider';
 import {antd} from '/client/configs/i18n.config';
+import constants from '/lib/constants';
+
+/* Roles */
+import roles from '/lib/helpers/security';
 
 /* Layouts */
 import BasicLayout from '/client/modules/layout/containers/basic_layout';
@@ -27,12 +31,18 @@ export default function (injectDeps, {LocalState}) {
     const UserLayoutCtx = injectDeps(UserLayout);
 
     const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
-        <Route {...rest} render={props => (
-            <Layout>
-                <Component {...props} />
-            </Layout>
-        )} />
-    )
+        <Route {...rest} render={(props) => {
+            const layout = <Layout><Component {...props} /></Layout>;
+            if(!rest.roles){
+                return layout;
+            }
+            const hasRole = roles.currentUserHasRole(rest.roles);
+
+            return hasRole ?
+                layout:
+                (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>)
+        }}/>
+    );
 
     ReactDOM.render(
         <Router history={history}>
@@ -40,7 +50,9 @@ export default function (injectDeps, {LocalState}) {
                 <Switch>
                     <AppRoute exact path='/user/login' layout={UserLayoutCtx} component={Login}/>
                     <AppRoute exact path='/user/register' layout={UserLayoutCtx} component={Register}/>
-                    <AppRoute exact path='/app' layout={BasicLayoutCtx} component={Home}/>
+
+                    <AppRoute exact roles={[constants.ROLES.ADMIN,constants.ROLES.ROOT]} path='/app' layout={BasicLayoutCtx} component={Home}/>
+                    
                     <Redirect from='/' to='/user/login'/>
                 </Switch>
             </LocaleProvider>
