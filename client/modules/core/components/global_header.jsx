@@ -18,7 +18,7 @@ class GlobalHeader extends React.Component {
                 <Menu.Item disabled><Icon type="user"/>Profil</Menu.Item>
                 <Menu.Item disabled><Icon type="setting"/>Paramètres</Menu.Item>
                 <Menu.Divider/>
-                <Menu.Item key="logout"><Icon type="logout"/>Déconnexion</Menu.Item>
+                <Menu.Item key="logout" onClick={this.props.logout}><Icon type="logout"/>Déconnexion</Menu.Item>
             </Menu>
         );
 
@@ -35,7 +35,7 @@ class GlobalHeader extends React.Component {
                               <span className='action account'>
                                 <Avatar size="small" className='avatar'
                                         src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}/>
-                                  Rémy
+                                  {this.props.user.email}
                               </span>
                         </Dropdown>
                     </div>
