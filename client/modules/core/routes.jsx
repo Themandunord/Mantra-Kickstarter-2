@@ -30,9 +30,9 @@ export default function (injectDeps, {LocalState}) {
     const BasicLayoutCtx = injectDeps(BasicLayout);
     const UserLayoutCtx = injectDeps(UserLayout);
 
-    const AppRoute = ({ component: Component, layout: Layout, ...rest }) => (
-        <Route {...rest} render={(props) => {
-            const layout = <Layout><Component {...props} /></Layout>;
+    const AppRoute = ({ c: Component, layout: Layout, ...rest }) => (
+        <Route exact {...rest} render={(props) => {
+            const layout = <BasicLayoutCtx><Component {...props} /></BasicLayoutCtx>;
             if(!rest.roles){
                 return layout;
             }
@@ -44,15 +44,22 @@ export default function (injectDeps, {LocalState}) {
         }}/>
     );
 
+    const GuestRoute = ({ c: Component, ...rest }) => (
+        <Route exact {...rest} render={(props) => {
+            const layout = <UserLayoutCtx><Component {...props} /></UserLayoutCtx>;
+            return layout;
+        }}/>
+    );
+
     ReactDOM.render(
         <Router history={history}>
             <LocaleProvider locale={antd()}>
                 <Switch>
-                    <AppRoute exact path='/user/login' layout={UserLayoutCtx} component={Login}/>
-                    <AppRoute exact path='/user/register' layout={UserLayoutCtx} component={Register}/>
+                    <GuestRoute path='/user/login' c={Login}/>
+                    <GuestRoute path='/user/register' c={Register}/>
 
-                    <AppRoute exact roles={[constants.ROLES.ADMIN,constants.ROLES.ROOT]} path='/app' layout={BasicLayoutCtx} component={Home}/>
-                    
+                    <AppRoute roles={[constants.ROLES.ADMIN,constants.ROLES.ROOT]} path='/app' c={Home}/>
+
                     <Redirect from='/' to='/user/login'/>
                 </Switch>
             </LocaleProvider>
