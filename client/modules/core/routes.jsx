@@ -13,7 +13,7 @@ import {antd} from '/client/configs/i18n.config';
 import constants from '/lib/constants';
 
 /* Roles */
-import roles from '/lib/helpers/security';
+import EnsureRole from '/client/modules/auth/containers/ensure_role';
 
 /* Layouts */
 import BasicLayout from '/client/modules/layout/containers/basic_layout';
@@ -32,15 +32,16 @@ export default function (injectDeps, {LocalState}) {
 
     const AppRoute = ({ c: Component, layout: Layout, ...rest }) => (
         <Route exact {...rest} render={(props) => {
-            const layout = <BasicLayoutCtx><Component {...props} /></BasicLayoutCtx>;
-            if(!rest.roles){
-                return layout;
-            }
-            const hasRole = roles.currentUserHasRole(rest.roles);
+            const roles = rest.roles || null;
 
-            return hasRole ?
-                layout:
-                (<Redirect to={{ pathname: '/', state: { from: props.location } }}/>)
+            const layout = (
+                <BasicLayoutCtx>
+                    <EnsureRole roles={roles}>
+                        <Component {...props} />
+                    </EnsureRole>
+                </BasicLayoutCtx>
+            );
+            return layout;
         }}/>
     );
 

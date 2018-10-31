@@ -35,7 +35,7 @@ class BasicLayout extends React.Component {
                             collapsed={this.state.collapsed}
                             onCollapse={this.onToggleCollapse}
                         />
-                        <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280}}>
+                        <Content style={{padding: 24, background: '#fff', minHeight: 280}}>
                             {this.props.children}
                         </Content>
                     </Layout>
