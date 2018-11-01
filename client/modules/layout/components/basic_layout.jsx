@@ -27,7 +27,7 @@ class BasicLayout extends React.Component {
     render() {
         return (
             <EnsureUser>
-                <Layout>
+                <Layout style={{height:"100vh"}}>
                     <SiderMenu
                         collapsed={this.state.collapsed}/>
                     <Layout>

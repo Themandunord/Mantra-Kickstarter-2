@@ -29,7 +29,7 @@ class GlobalHeader extends React.Component {
 
         return (
             <div className='global_header'>
-                <Header className='header'>
+                <Header className='header' style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
                     <Icon
                         className="trigger"
                         type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}

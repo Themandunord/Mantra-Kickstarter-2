@@ -3,6 +3,7 @@ import Layout from 'antd/lib/layout';
 import Menu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
 import {Link} from 'react-router-dom';
+import config from '/lib/configs/ui';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
@@ -13,14 +14,20 @@ class SiderMenu extends React.Component {
     }
 
     render() {
+        let siderProps = {
+                className:'sider',
+                trigger: null,
+                collapsible: true,
+                breakpoint: "md",
+                width: 256,
+                collapsed: this.props.collapsed
+        };
+        if(config.responsiveSider){
+            siderProps.collapsedWidth = 0;
+        }
         return (
             <Sider
-                className='sider'
-                trigger={null}
-                collapsible
-                breakpoint="md"
-                width={256}
-                collapsed={this.props.collapsed}
+                {...siderProps}
             >
                 <div className='logo'>
                     <Link to="/app">

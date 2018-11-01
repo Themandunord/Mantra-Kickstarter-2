@@ -3,6 +3,32 @@ import i18n from 'meteor/universe:i18n';
 import DatePicker from "antd/lib/date-picker";
 import Card, {Meta} from 'antd/lib/card';
 import Avatar from 'antd/lib/avatar';
+import Col from 'antd/lib/col';
+import Row from 'antd/lib/row';
+import faker from 'faker';
+
+const generateCards = (self) => {
+    let cards = [];
+    for (let i = 0; i < 12; i++) {
+        cards.push(
+            <Col key={"col_card_" + i} xs={24} sm={12} md={10} lg={8} xl={4}>
+                <Card key={"card_" + i} style={{ marginTop: 8 }} loading={self.state.loading}>
+                    <Meta
+                        avatar={<Avatar src={faker.image.avatar()} />}
+                        title="Card title"
+                        description="This is the description"
+                    />
+                </Card>
+            </Col>
+        );
+    }
+
+    return (
+        <Row gutter={16}>
+            {cards}
+        </Row>
+    );
+}
 
 export default class Home extends React.Component {
     constructor(props){
@@ -15,31 +41,9 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Mantra</h1>
-                <p>
-                    Welcome to Mantra 0.4.2.
-                </p>
-                <ul>
-                    <li>
-                        Read <a target="_blank" href="https://kadirahq.github.io/mantra/">spec</a>
-                    </li>
-                    <li>
-                        Learn <a target="_blank" href="https://github.com/sungwoncho/mantra-cli#commands">CLI</a>
-                    </li>
-                </ul>
-    
+            <div>   
                 <p>{i18n.__('title')}</p>
-    
-                <DatePicker />
-    
-                <Card style={{ width: 300, marginTop: 16 }} loading={this.state.loading}>
-                    <Meta
-                        avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                        title="Card title"
-                        description="This is the description"
-                    />
-                </Card>
+                {generateCards(this)}
             </div>
         );
     } 
