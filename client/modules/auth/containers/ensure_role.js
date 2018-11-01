@@ -1,5 +1,6 @@
 import {useDeps, composeAll, composeWithTracker, compose} from 'mantra-core';
 import Security from '/lib/helpers/security';
+import { Roles } from 'meteor/alanning:roles';
 
 import EnsureRole from '../components/ensure_role.jsx';
 
@@ -10,9 +11,8 @@ export const composer = ({context, roles}, onData) => {
     return onData(null, {});
   }
 
-  const hasRole = Security.currentUserHasRole(roles);
-
-  if(Meteor.user()){
+  if(Meteor.user() && Roles.subscription.ready()){
+    const hasRole = Security.currentUserHasRole(roles);
     if(!hasRole){
       return history.push('/')
     }
