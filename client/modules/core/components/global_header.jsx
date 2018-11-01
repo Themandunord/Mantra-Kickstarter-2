@@ -5,7 +5,12 @@ import Avatar from 'antd/lib/avatar';
 import Icon from 'antd/lib/icon';
 import Layout from 'antd/lib/layout';
 
-const {Header} = Layout
+import faker from 'faker';
+
+const {Header} = Layout;
+
+// const avatar = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
+const avatar = faker.image.avatar();
 
 class GlobalHeader extends React.Component {
     constructor(props) {
@@ -34,7 +39,7 @@ class GlobalHeader extends React.Component {
                         <Dropdown overlay={menu}>
                               <span className='action account'>
                                 <Avatar size="small" className='avatar'
-                                        src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}/>
+                                        src={avatar}/>
                                   {this.props.user.email}
                               </span>
                         </Dropdown>
