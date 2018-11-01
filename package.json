@@ -22,6 +22,7 @@
     "bcrypt": "^1.0.3",
     "chalk": "^2.4.1",
     "classnames": "^2.2.6",
+    "enquire-js": "^0.2.1",
     "faker": "^4.1.0",
     "indexof": "0.0.1",
     "mantra-core": "^1.7.0",

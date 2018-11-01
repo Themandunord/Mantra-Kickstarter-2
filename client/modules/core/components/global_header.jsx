@@ -27,9 +27,16 @@ class GlobalHeader extends React.Component {
             </Menu>
         );
 
+        const {isMobile} = this.props;
+
         return (
             <div className='global_header'>
-                <Header className='header' style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+                <Header className='header' style={{ 
+                        position: 'fixed', 
+                        zIndex: 10,
+                        width: isMobile ? '100%' : 'calc(100% - ' + (this.props.collapsed ? 80 : 256) + 'px)',
+                        transition: 'width .2s'
+                    }}>
                     <Icon
                         className="trigger"
                         type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
