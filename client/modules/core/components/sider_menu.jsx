@@ -16,7 +16,7 @@ class SiderComponent extends React.Component{
                     collapsible
                     breakpoint={"lg"}
                     width={256}
-                    collapsed={this.props.collapsed}
+                    collapsed={this.props.isMobile ? false : this.props.collapsed}
                 >
                     <div className='logo'>
                         <Link to="/app">
