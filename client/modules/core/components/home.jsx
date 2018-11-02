@@ -7,14 +7,21 @@ import Col from 'antd/lib/col';
 import Row from 'antd/lib/row';
 import faker from 'faker';
 
-const generateCards = (self) => {
+const generateCards = (self, {
+    count = 12,
+    xs = 24,
+    sm = 24,
+    md = 24,
+    lg = 24,
+    xl = 24
+}) => {
     let cards = [];
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < count; i++) {
         cards.push(
-            <Col key={"col_card_" + i} xs={24} sm={12} md={10} lg={8} xl={4}>
-                <Card key={"card_" + i} style={{ marginTop: 8 }} loading={self.state.loading}>
+            <Col key={_.uniq("col_card_" + i)} xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                <Card key={_.uniq("card_" + i)} style={{marginTop: 8}} loading={self.state.loading}>
                     <Meta
-                        avatar={<Avatar src={faker.image.avatar()} />}
+                        avatar={<Avatar src={faker.image.avatar()}/>}
                         title="Card title"
                         description="This is the description"
                     />
@@ -31,20 +38,41 @@ const generateCards = (self) => {
 }
 
 export default class Home extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             loading: true
         };
-        setTimeout(() => this.setState({loading:false}), 2000);
+        setTimeout(() => this.setState({loading: false}), 2000);
     }
 
     render() {
         return (
-            <div>   
-                <p>{i18n.__('title')}</p>
-                {generateCards(this)}
-            </div>
+            <Row gutter={16}>
+                <Col xs={24} sm={12} md={18} lg={18} xl={18}>
+                    <p>{i18n.__('title')}</p>
+                    {generateCards(this, {
+                        count : 18,
+                        xs:24,
+                        sm:16,
+                        md:12,
+                        lg:8,
+                        xl:8
+                    })}
+                </Col>
+                <Col xs={24} sm={12} md={6} lg={6} xl={6}>
+                    <p>{i18n.__('title')}</p>
+                    {generateCards(this, {
+                        count: 3
+                    })}
+                </Col>
+                <Col xs={24} sm={12} md={6} lg={6} xl={6}>
+                    <p>{i18n.__('title')}</p>
+                    {generateCards(this, {
+                        count: 3
+                    })}
+                </Col>
+            </Row>
         );
-    } 
+    }
 }
