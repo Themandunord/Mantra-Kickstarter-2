@@ -35,7 +35,7 @@ export default function () {
     // Check the user's email is verified
     // Note: if users may have multiple email addresses you'd need to do something more complex
     if (attempt.user.emails[0].verified !== true) {
-      throw new Meteor.Error('email-not-verified', 'You must verify your email address');
+      throw new Meteor.Error('email-not-verified', 'Please verify your email first. Check the email and follow the link!');
     }
 
     return true;

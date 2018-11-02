@@ -89,16 +89,16 @@ export default function () {
   DocHead.addLdJsonScript({
     '@context': 'http://schema.org',
     '@type': 'Organization',
-    name: 'https://smartisdesign.com',
+    name: '',
     url: '',
     logo: '',
-    description: 'https://smartisdesign.com',
+    description: '',
     telephone: '0000000000',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Strasbourg',
       addressRegion: 'Alsace',
-      streetAddress: 'Avenue de l\'Europe'
+      streetAddress: 'Rue'
     }
   });
 

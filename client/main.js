@@ -1,5 +1,8 @@
 // Sanitize CSS
 import 'sanitize.css/sanitize.css';
+import {T9n} from 'meteor-accounts-t9n';
+import 'meteor-accounts-t9n/build/fr';
+import 'meteor-accounts-t9n/build/en';
 
 import {createApp} from 'mantra-core';
 
@@ -9,6 +12,8 @@ import initContext from './configs/context';
 import coreModule from './modules/core';
 import layoutModule from './modules/layout';
 import accountModule from './modules/account';
+import authModule from './modules/auth';
+
 
 
 // Replace Underscore with lodash
@@ -27,6 +32,8 @@ const app = createApp(context);
 app.loadModule(coreModule);
 app.loadModule(layoutModule);
 app.loadModule(accountModule);
+app.loadModule(authModule);
+
 
 
 app.init();

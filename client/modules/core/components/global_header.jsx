@@ -5,7 +5,12 @@ import Avatar from 'antd/lib/avatar';
 import Icon from 'antd/lib/icon';
 import Layout from 'antd/lib/layout';
 
-const {Header} = Layout
+import faker from 'faker';
+
+const {Header} = Layout;
+
+// const avatar = 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png';
+const avatar = faker.image.avatar();
 
 class GlobalHeader extends React.Component {
     constructor(props) {
@@ -18,13 +23,20 @@ class GlobalHeader extends React.Component {
                 <Menu.Item disabled><Icon type="user"/>Profil</Menu.Item>
                 <Menu.Item disabled><Icon type="setting"/>Paramètres</Menu.Item>
                 <Menu.Divider/>
-                <Menu.Item key="logout"><Icon type="logout"/>Déconnexion</Menu.Item>
+                <Menu.Item key="logout" onClick={this.props.logout}><Icon type="logout"/>Déconnexion</Menu.Item>
             </Menu>
         );
 
+        const {isMobile} = this.props;
+
         return (
             <div className='global_header'>
-                <Header className='header'>
+                <Header className='header' style={{ 
+                        position: 'fixed', 
+                        zIndex: 10,
+                        width: isMobile ? '100%' : 'calc(100% - ' + (this.props.collapsed ? 80 : 256) + 'px)',
+                        transition: 'width .2s'
+                    }}>
                     <Icon
                         className="trigger"
                         type={this.props.collapsed ? 'menu-unfold' : 'menu-fold'}
@@ -34,8 +46,8 @@ class GlobalHeader extends React.Component {
                         <Dropdown overlay={menu}>
                               <span className='action account'>
                                 <Avatar size="small" className='avatar'
-                                        src={'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png'}/>
-                                  Rémy
+                                        src={avatar}/>
+                                  {this.props.user.email}
                               </span>
                         </Dropdown>
                     </div>

@@ -17,23 +17,16 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.form.validateFields({force: true},
-            (err, values) => {
+        this.props.form.validateFields((err, values) => {
                 if (!err) {
-                    this.props.dispatch({
-                        type: 'login/login',
-                        payload: {
-                            ...values,
-                            type: this.state.type,
-                        },
-                    });
+                    this.props.logIn(values.email, values.password);
                 }
             }
         );
     };
 
     render() {
-        const {form} = this.props;
+        const {form, error} = this.props;
         const {getFieldDecorator} = form;
 
         return (
@@ -76,18 +69,20 @@ class Login extends React.Component {
                             <Checkbox className='autoLogin'>Keep sign-in</Checkbox>
                         )}
                         <a className='forgot' href="">Forgot password</a>
+                        <Link className='register' to="/user/register">Register</Link>
                         <Button size="large" loading={false} className='submit' type="primary" htmlType="submit">
                             Sign-in
                         </Button>
                     </FormItem>
                 </Form>
-                <div className='other'>
+                
+                {/*<div className='other'>
                    Other login methods
                     <span className='iconAlipay' />
                     <span className='iconTaobao' />
                     <span className='iconWeibo' />
-                    <Link className='register' to="/user/register">Register</Link>
-                </div>
+                    
+                      </div>*/}
             </div>
         );
     }

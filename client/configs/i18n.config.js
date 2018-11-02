@@ -14,12 +14,16 @@ function getLang () {
 }
 
 export const init = () => {
-    i18n.setLocale(getLang());
+    const lang = getLang();
+    i18n.setLocale(lang);
+    T9n.setLanguage(lang);
 };
 
 export const antd = () => {
     let lang = getLang();
-    if(lang.indexOf('fr') > -1) return frFR;
+    if(lang.indexOf('fr') > -1) {
+        return frFR;
+    }
     return enUS;
 }
 
