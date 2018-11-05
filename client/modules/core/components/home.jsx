@@ -17,11 +17,12 @@ const generateCards = (self, {
 }) => {
     let cards = [];
     for (let i = 0; i < count; i++) {
+        const image = faker.image.avatar();
         cards.push(
-            <Col key={_.uniq("col_card_" + i)} xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
-                <Card key={_.uniq("card_" + i)} style={{marginTop: 8}} loading={self.state.loading}>
+            <Col key={_.uniqueId("col_card_" + i)} xs={xs} sm={sm} md={md} lg={lg} xl={xl}>
+                <Card key={_.uniqueId("card_" + i)} style={{marginTop: 8}} loading={self.state.loading}>
                     <Meta
-                        avatar={<Avatar src={faker.image.avatar()}/>}
+                        avatar={<Avatar src={image}/>}
                         title="Card title"
                         description="This is the description"
                     />
