@@ -1,6 +1,6 @@
 export default {
     logout({Meteor, history}){
         Meteor.logout();
-        history.push('/')
+        history.push('/login')
     },
 };

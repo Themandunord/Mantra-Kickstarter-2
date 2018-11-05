@@ -26,6 +26,9 @@ import Home from '/client/modules/core/components/home.jsx';
 import Login from '/client/modules/account/containers/login';
 import Register from '/client/modules/account/containers/register';
 
+/* Exception */
+import Exception from '/client/modules/core/components/exception';
+
 export default function (injectDeps, {LocalState}) {
     const BasicLayoutCtx = injectDeps(BasicLayout);
     const UserLayoutCtx = injectDeps(UserLayout);
@@ -47,8 +50,17 @@ export default function (injectDeps, {LocalState}) {
 
     const GuestRoute = ({ c: Component, ...rest }) => (
         <Route exact {...rest} render={(props) => {
-            const layout = <UserLayoutCtx><Component {...props} /></UserLayoutCtx>;
-            return layout;
+        return (<UserLayoutCtx><Component {...props} /></UserLayoutCtx>);
+        }}/>
+    );
+
+    const AppRedirect = ({to, ...rest}) => (
+        <Route exact path="*" render={(props) => {
+            return (<BasicLayoutCtx>
+                        <EnsureRole>
+                            <Redirect to={to} />
+                        </EnsureRole>
+                    </BasicLayoutCtx>);
         }}/>
     );
 
@@ -56,12 +68,14 @@ export default function (injectDeps, {LocalState}) {
         <Router history={history}>
             <LocaleProvider locale={antd()}>
                 <Switch>
-                    <GuestRoute path='/user/login' c={Login}/>
-                    <GuestRoute path='/user/register' c={Register}/>
+                    <GuestRoute path='/login' c={Login}/>
+                    <GuestRoute path='/register' c={Register}/>                    
 
                     <AppRoute roles={[constants.ROLES.ADMIN,constants.ROLES.ROOT]} path='/app' c={Home}/>
 
-                    <Redirect from='/' to='/user/login'/>
+                    <AppRoute path='/404' c={Exception}/>
+
+                    <AppRedirect to='/404'/>
                 </Switch>
             </LocaleProvider>
         </Router>

@@ -6,7 +6,7 @@ export const composer = ({context}, onData) => {
   const {Meteor, history} = context();
 
   if(!Meteor.userId()){
-    history.push('/')
+    history.push('/login')
   }else {
     onData(null, {});
   }

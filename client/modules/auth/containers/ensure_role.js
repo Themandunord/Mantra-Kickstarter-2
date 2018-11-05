@@ -14,7 +14,7 @@ export const composer = ({context, roles}, onData) => {
   if(Meteor.user() && Roles.subscription.ready()){
     const hasRole = Security.currentUserHasRole(roles);
     if(!hasRole){
-      return history.push('/')
+      return history.push('/login')
     }
     onData(null, {});
   }
