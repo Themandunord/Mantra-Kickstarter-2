@@ -44,7 +44,7 @@ class BasicLayout extends React.Component {
     render() {
         return (
             <EnsureUser>
-                <Layout style={{height:"100vh"}}>
+                <Layout className="basic-layout">
                     <SiderMenu
                         isMobile={this.state.isMobile}
                         collapsed={this.state.collapsed}
@@ -56,7 +56,7 @@ class BasicLayout extends React.Component {
                             collapsed={this.state.collapsed}
                             onCollapse={this.onToggleCollapse}
                         />
-                        <Content style={{padding: 24, background: '#fff', minHeight: 'initial', marginTop: 64}}>
+                        <Content style={{padding: 24, background: '#fff', minHeight: 'initial', marginTop:64, overflow: 'auto'}}>
                             {this.props.children}
                         </Content>
                     </Layout>

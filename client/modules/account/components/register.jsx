@@ -114,7 +114,7 @@ class Register extends React.Component {
                         >
                             Register
                         </Button>
-                        <Link className='login' to="/user/login">
+                        <Link className='login' to="/login">
                             Already have an account ?
                         </Link>
                     </FormItem>
